@@ -7,7 +7,7 @@
 ### Links
 
 - Solution URL: (https://github.com/elasri21/appage)
-- Live Site URL: (https://your-live-site-url.com)
+- Live Site URL: (https://elasri21.github.io/appage/)
 
 ### Built with
 
