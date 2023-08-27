@@ -1,8 +1,6 @@
+// collection of elements
 const fields = Array.from(document.querySelectorAll("input"));
 const spanError = Array.from(document.querySelectorAll(".control span"));
-const years = document.querySelector(".years .dash");
-const months = document.querySelector(".months .dash");
-const days = document.querySelector(".days .dash");
 const btn = document.querySelector(".icon");
 
 
@@ -41,18 +39,23 @@ function test() {
 
 // check empty
 function checkEmpty(fields) {
+  let valid = false;
   fields.forEach((field) => {
     if (field.value == "") {
       field.nextElementSibling.textContent = "This field is required";
       field.parentElement.classList.add("empty");
+      valid = false;
     } else if(isNaN(field.value)) {
       field.nextElementSibling.textContent = "A number is required";
       field.parentElement.classList.add("empty");
+      valid = false;
     } else {
       field.nextElementSibling.textContent = "";
       field.parentElement.classList.remove("empty");
+      valid = true;
     }
   });
+  return valid;
 }
 
 
@@ -60,6 +63,7 @@ function checkEmpty(fields) {
 //checkEmpty(fields);
 
 btn.addEventListener("click", function () {
-  checkEmpty(fields)
-  test();
+  if (checkEmpty(fields)) {
+    test();
+  }
 });
